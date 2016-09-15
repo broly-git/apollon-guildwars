@@ -1,0 +1,40 @@
+<ion-view view-title="LOL NOOB">
+  <ion-content class="padding">
+    <label class="item item-input">
+      <span class="input-label">Nom du joueur</span>
+      <input type="text" ng-model="playerToFind" ng-model-options="{debounce: 1000} " ng-change="searchPlayer(playerToFind)">
+    </label>
+
+    <div ng-show="showPlayer" class="list card">
+
+      <div class="item item-avatar">
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.18.1/img/profileicon/{{player.profileIconId}}.png">
+        <h2>{{player.name}}</h2>
+        <p>Niveau : {{player.summonerLevel}}</p>
+      </div>
+
+      <div class="item item-body">
+        <!--<img class="full-image" src="http://loremflickr.com/320/240/">-->
+
+          <div class="row">
+            <div class="col">Nb victoire : </div> <div class="col">{{generalPlayerInfo.wins}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Nb d'énnemies tués : </div> <div class="col">{{playerInfoRanked.totalMinionKills}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Nb de tours détruite : </div> <div class="col">{{playerInfoRanked.totalTurretsKilled}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Nb de monstre de jungle tués : </div> <div class="col">{{playerInfoRanked.totalNeutralMinionsKilled}}</div>
+          </div>
+          <div class="row">
+            <div class="col">Nb d'assistances : </div> <div class="col">{{playerInfoRanked.totalAssists}}</div>
+          </div>
+
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>
