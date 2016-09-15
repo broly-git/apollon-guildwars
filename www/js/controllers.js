@@ -1,42 +1,26 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,apiRiot) {
+.controller('DashCtrl', function($scope,apiGW2) {
 
-  $scope.searchPlayer = function(playerToFind) {
+  apiGW2.get();
 
-    playerToFind = playerToFind.replace(' ', '');
+      // apiGW2.get().then(function () {
+      //
+      //
+      //
+      //   for (var propName in basicPlayerInfo) {
+      //     if (basicPlayerInfo.hasOwnProperty(propName)) {
+      //       var player = basicPlayerInfo[propName];
+      //       if(player){$scope.showPlayer = true}else{$scope.showPlayer = false}
+      //       $scope.player = player;
+      //       console.log(player);
+      //     }
+      //   }
+      //
+      // });
 
-    if (playerToFind != "") {
-      apiRiot.get(playerToFind).then(function (playerArrayInfo) {
 
-        console.log("une requete est envoyé a l'API DE RIOT !!!!")
-        // console.log(playerList)
-        $scope.$watch('scope.playerToFind', function () {
-          console.log(playerToFind);
-        });
 
-        var basicPlayerInfo = playerArrayInfo[0];
-
-        // console.log(playerArrayInfo[1][7])
-        // console.log(playerArrayInfo[1][7].aggregatedStats)
-
-        $scope.generalPlayerInfo = playerArrayInfo[1][7];
-        $scope.playerInfoRanked = playerArrayInfo[1][7].aggregatedStats;
-
-        for (var propName in basicPlayerInfo) {
-          if (basicPlayerInfo.hasOwnProperty(propName)) {
-            var player = basicPlayerInfo[propName];
-            if(player){$scope.showPlayer = true}else{$scope.showPlayer = false}
-            $scope.player = player;
-            console.log(player);
-          }
-        }
-
-      });
-    }else{
-      $scope.showPlayer = false;
-    }
-  }
 
 })
 

@@ -47,21 +47,54 @@ angular.module('starter.services', []).factory('Chats', function() {
   };
 })
 
-.factory('apiRiot', function($http) {
+.factory('apiGW2', function($http) {
 
-    var getRiotApiData = function (player) {
+    var getGW2ApiData = function () {
 
-        console.log(player);
-        var key = "RGAPI-ECC57D56-BF35-4337-803B-5F299944F584";
-        var url = "https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/"+player+"?api_key=" + key;
-
-        var promise = $http.get(url).then(function(response){;
-            return response.data;
+        var  getMapIdList = $http.get("https://api.guildwars2.com/v2/maps/").then(function(response){;
+          return response.data;
+          // console.log(response.data)
         }, function(err){
-            return err;
+          return err;
         });
 
-        var promise2 = promise.then(
+
+
+      var infosMaps = getMapIdList.then(
+        function(mapIdList) {
+
+            console.log(mapIdList)
+
+            var tabPromise = [];
+
+            function getMapInfos(idMap){
+              var url = "https://api.guildwars2.com/v2/maps/" + idMap
+
+              return promise = $http.get(url).then(function (response) {
+                 return response;
+                // console.log(response)
+              }, function (err) {
+                return err;
+              });
+            }
+
+            for (i = 0; i < 6; i++) {
+              tabPromise[i]  = getMapInfos(mapIdList[i])
+            }
+
+            var megaGigaPromiseOfTheDeath = Promise.all(tabPromise).then(
+              function(values){
+                 console.log(values);
+                // return values;
+              }
+            );
+
+          }
+        );
+
+
+
+        /*var promise2 = promise.then(
             function(playerList) {
 
                 for (var propName in playerList) {
@@ -92,12 +125,12 @@ angular.module('starter.services', []).factory('Chats', function() {
             //  console.log(values);
              return values;
            }
-        );
+        );*/
 
-    return megaGigaPromiseOfTheDeath;
+    // return megaGigaPromiseOfTheDeath;
   }
 
   return {
-    get: getRiotApiData
+    get: getGW2ApiData
   };
 });
