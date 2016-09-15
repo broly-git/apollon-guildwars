@@ -1,27 +1,13 @@
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope,apiGW2) {
-
-  apiGW2.get();
-
-      // apiGW2.get().then(function () {
-      //
-      //
-      //
-      //   for (var propName in basicPlayerInfo) {
-      //     if (basicPlayerInfo.hasOwnProperty(propName)) {
-      //       var player = basicPlayerInfo[propName];
-      //       if(player){$scope.showPlayer = true}else{$scope.showPlayer = false}
-      //       $scope.player = player;
-      //       console.log(player);
-      //     }
-      //   }
-      //
-      // });
-
-
-
-
+      var allMapsInfos = apiGW2.allMapsInfos().then(function(tab){
+        $scope.allMapsInfos = tab;
+        
+        // tab.forEach(function(allMapData) {
+        //    console.log(allMapData.data)
+        // });
+      });
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {

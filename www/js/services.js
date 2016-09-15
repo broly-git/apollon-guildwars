@@ -53,17 +53,12 @@ angular.module('starter.services', []).factory('Chats', function() {
 
         var  getMapIdList = $http.get("https://api.guildwars2.com/v2/maps/").then(function(response){;
           return response.data;
-          // console.log(response.data)
         }, function(err){
           return err;
         });
 
-
-
-      var infosMaps = getMapIdList.then(
+      return infosMaps = getMapIdList.then(
         function(mapIdList) {
-
-            console.log(mapIdList)
 
             var tabPromise = [];
 
@@ -72,65 +67,27 @@ angular.module('starter.services', []).factory('Chats', function() {
 
               return promise = $http.get(url).then(function (response) {
                  return response;
-                // console.log(response)
               }, function (err) {
                 return err;
               });
             }
 
-            for (i = 0; i < 6; i++) {
+            for (i = 0; i < 60; i++) {
               tabPromise[i]  = getMapInfos(mapIdList[i])
             }
 
-            var megaGigaPromiseOfTheDeath = Promise.all(tabPromise).then(
-              function(values){
-                 console.log(values);
-                // return values;
+            return getAllMapsInfos = Promise.all(tabPromise).then(
+              function(allMapData){
+                return allMapData;
               }
             );
 
           }
         );
 
-
-
-        /*var promise2 = promise.then(
-            function(playerList) {
-
-                for (var propName in playerList) {
-                    if (playerList.hasOwnProperty(propName)) {
-                        var player = playerList[propName];
-                    }
-                }
-
-                var url2 = "https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/"+player.id+"/summary?season=SEASON2016&api_key=" + key;
-
-                return $http.get(url2).then(function(response){
-                  // console.log(response.data.playerStatSummaries);
-                  return response.data.playerStatSummaries;
-                }, function(err){
-                    return err;
-                });
-
-            }
-        ).catch(function(err) {
-            console.log(err);
-        });
-
-       var tabPromise = [promise,promise2];
-
-        var megaGigaPromiseOfTheDeath = Promise.all(tabPromise).then(
-           function(values){
-            // console.log("values grosse promesse : ");
-            //  console.log(values);
-             return values;
-           }
-        );*/
-
-    // return megaGigaPromiseOfTheDeath;
   }
 
   return {
-    get: getGW2ApiData
+    allMapsInfos: getGW2ApiData
   };
 });
