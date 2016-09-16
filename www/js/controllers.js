@@ -71,4 +71,12 @@ angular.module('starter.controllers', [])
     $scope.batteryLevel = $rootScope.batteryLevel;
     console.log( $rootScope.batteryLevel);
 
+  
+   
+
 })
+
+
+
+
+ 

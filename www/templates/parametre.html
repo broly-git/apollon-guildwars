@@ -3,6 +3,18 @@
       <h3>Paramètres</h3>
       <hr>
       <!--p><img src="http://ionicframework.com/img/diagrams/tabs-nav-stack.png" style="width:100%"></p-->
+      <div class="item">
       niveau  de la batterie : {{batteryLevel}}
+      </div>
+
+      <li class="item item-toggle text-center">
+       Passer en mode nuit
+      <label class="toggle toggle-assertive">
+        <input type="checkbox" onclick="parametersCtrl()">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+      </label>
+    </li>
     </ion-content>
   </ion-view>
