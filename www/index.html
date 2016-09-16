@@ -99,7 +99,7 @@
     <ion-view view-title="Guild wars">
       <ion-content class="padding">
 
-        <div ng-repeat="map in allMapsInfos">
+        <ion-item collection-repeat="map in allMapsInfos">
 
 
           <div class="item item-avatar">
@@ -119,11 +119,9 @@
               <div class="col">Niveau min : </div> <div class="col">{{map.data.max_level}}</div>
             </div>
 
-
           </div>
 
-
-        </div>
+        </ion-item>
 
       </ion-content>
     </ion-view>
