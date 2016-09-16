@@ -58,7 +58,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova','starter.
           }
         }
       })
-
       .state('tabs.servino', {
         url: "/servino",
         views: {
@@ -67,7 +66,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova','starter.
           }
         }
       })
-
       .state('tabs.propos', {
         url: "/propos",
         views: {
