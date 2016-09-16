@@ -47,6 +47,7 @@ angular.module('starter.controllers', [])
   })
 
 
+<<<<<<< HEAD
 .controller('parametersCtrl', function($scope,$cordovaBatteryStatus,$rootScope) {
 
     document.addEventListener("deviceready", function () {
@@ -73,6 +74,30 @@ angular.module('starter.controllers', [])
 
   
    
+
+.controller('parametersCtrl', function($scope,$cordovaBatteryStatus,$rootScope,$ionicPlatform) {
+  $ionicPlatform.ready(function(){
+    $rootScope.$on("$cordovaBatteryStatus:status", function(event, args){
+      console.log(args);
+      $scope.batteryLevel = args.level;
+      console.log($scope.batteryLevel);
+      $scope.isPluggedIn = args.isPlugged;
+      console.log($scope.isPluggedIn);
+      if(args.isPlugged)
+      {
+        alert("Noob de Clément tu charges -> " + args.level + " %");
+      }
+      else
+      {
+        alert("WHAT POURQUOI TU ME DEBRANCHES -> " + args.level + " %");
+      }
+      $scope.percentageStyle = {
+        width : $scope.batteryLevel + '%'
+      };
+      $scope.coucou = "coucou mdr";
+    });
+  });
+  $scope.coucoul = "XD";
 
 })
 
