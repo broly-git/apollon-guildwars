@@ -1,2 +1,14 @@
 /* Empty. Add your own CSS if you like */
+.titre1{
+  background-color: #11c1f3;
+  text-align: center;
+}
+.scroll {
+  height: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 90%;
+}
 

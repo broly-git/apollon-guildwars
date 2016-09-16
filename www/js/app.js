@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,3 +22,144 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+
+
+/*.config(function ($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+
+    .state(
+      'tabs', {
+        url:'/tab',
+        abstract:true,
+        templateUrl:'templates/tabs.html'
+      })
+    .state('tab.google-map',{
+      url:'/google-map',
+      view:{
+        'tab-google-map':{
+          templateUrl: 'templates/google-map.html',
+          controller: 'GooMapCtrl'
+        }
+      }
+    })
+
+    .state('tab.guild-war',{
+      url:'/guild-war',
+      view:{
+        'tab-guild-map':{
+          templateUrl: 'templates/guild-war.html',
+          controller: 'GuiMapCtrl'
+        }
+      }
+    })
+
+    .state('tab.parametre',{
+      url:'/parametre',
+      view:{
+        'tab-parametre':{
+          templateUrl: 'templates/parametre.html',
+          controller: 'ParamCtrl'
+        }
+      }
+    })
+
+    .state('tab.information',{
+      url:'/information',
+      view:{
+        'tab-info':{
+          templateUrl: 'templates/information.html',
+          controller: 'InfoCtrl'
+        }
+      }
+    })
+
+
+  $urlRouterProvider.otherwise('/tab/map');
+
+})*/
+
+  .config(function($stateProvider, $urlRouterProvider) {
+
+    $stateProvider
+      .state('tabs', {
+        url: "/tab",
+        abstract: true,
+        templateUrl: "templates/tabs.html"
+      })
+      .state('tabs.google-map', {
+        url: "/google-map",
+        views: {
+          'google-map-tab': {
+            templateUrl: "templates/google-map.html",
+
+          }
+        }
+      })
+      .state('tabs.google-map-map', {
+        url: "/google-map-map",
+        views: {
+          'google-map-tab': {
+            templateUrl: "templates/google-map-map.html",
+            controller: 'GooMapCtrl'
+          }
+        }
+      })
+      .state('tabs.developpeur', {
+        url: "/developpeur",
+        views: {
+          'info-tab': {
+            templateUrl: "templates/developpeur.html"
+          }
+        }
+      })
+
+      .state('tabs.servino', {
+        url: "/servino",
+        views: {
+          'info-tab': {
+            templateUrl: "templates/servino.html"
+          }
+        }
+      })
+
+      .state('tabs.propos', {
+        url: "/propos",
+        views: {
+          'info-tab': {
+            templateUrl: "templates/propos.html"
+          }
+        }
+      })
+      .state('tabs.guild-war', {
+        url: "/guild-war",
+        views: {
+          'guild-war-tab': {
+            templateUrl: "templates/guild-war.html"
+          }
+        }
+      })
+      .state('tabs.parametre', {
+        url: "/parametre",
+        views: {
+          'parametre-tab': {
+            templateUrl: "templates/parametre.html"
+          }
+        }
+      })
+      .state('tabs.information', {
+        url: "/information",
+        views: {
+          'info-tab': {
+            templateUrl: "templates/information.html"
+          }
+        }
+      });
+
+
+    $urlRouterProvider.otherwise("/tab/google-map");
+
+  })
+
+
