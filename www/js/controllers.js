@@ -57,11 +57,11 @@ angular.module('starter.controllers', [])
       console.log($scope.isPluggedIn);
       if(args.isPlugged)
       {
-        alert("Charging -> " + args.level + " %");
+        alert("Noob de Clément tu charges -> " + args.level + " %");
       }
       else
       {
-        alert("Battery -> " + args.level + " %");
+        alert("WHAT POURQUOI TU ME DEBRANCHES -> " + args.level + " %");
       }
       $scope.percentageStyle = {
         width : $scope.batteryLevel + '%'
