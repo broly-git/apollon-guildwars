@@ -87,7 +87,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova','starter.
         url: "/parametre",
         views: {
           'parametre-tab': {
-            templateUrl: "templates/parametre.html"
+            templateUrl: "templates/parametre.html",
+            controller: 'parametersCtrl'
           }
         }
       })
