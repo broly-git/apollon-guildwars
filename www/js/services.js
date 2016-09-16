@@ -66,7 +66,8 @@ angular.module('starter.services', []).factory('Chats', function() {
               var url = "https://api.guildwars2.com/v2/maps/" + idMap
 
               return promise = $http.get(url).then(function (response) {
-                 return response;
+                 console.log(response);
+                return response;
               }, function (err) {
                 return err;
               });

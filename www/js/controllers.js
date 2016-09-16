@@ -3,10 +3,11 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope,apiGW2) {
       var allMapsInfos = apiGW2.allMapsInfos().then(function(tab){
         $scope.allMapsInfos = tab;
-        
+
         // tab.forEach(function(allMapData) {
         //    console.log(allMapData.data)
         // });
+
       });
 })
 
