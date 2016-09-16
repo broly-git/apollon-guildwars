@@ -66,6 +66,30 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova','starter.
           }
         }
       })
+      .state('tabs.anthony', {
+        url: "/anthony",
+        views: {
+          'info-tab': {
+            templateUrl: "templates/anthony.html"
+          }
+        }
+      })
+      .state('tabs.clement', {
+        url: "/clement",
+        views: {
+          'info-tab': {
+            templateUrl: "templates/clement.html"
+          }
+        }
+      })
+      .state('tabs.brudel', {
+        url: "/brudel",
+        views: {
+          'info-tab': {
+            templateUrl: "templates/brudel.html"
+          }
+        }
+      })
       .state('tabs.propos', {
         url: "/propos",
         views: {
