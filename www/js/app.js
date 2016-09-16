@@ -24,62 +24,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 })
 
 
-
-/*.config(function ($stateProvider, $urlRouterProvider) {
-
-  $stateProvider
-
-    .state(
-      'tabs', {
-        url:'/tab',
-        abstract:true,
-        templateUrl:'templates/tabs.html'
-      })
-    .state('tab.google-map',{
-      url:'/google-map',
-      view:{
-        'tab-google-map':{
-          templateUrl: 'templates/google-map.html',
-          controller: 'GooMapCtrl'
-        }
-      }
-    })
-
-    .state('tab.guild-war',{
-      url:'/guild-war',
-      view:{
-        'tab-guild-map':{
-          templateUrl: 'templates/guild-war.html',
-          controller: 'GuiMapCtrl'
-        }
-      }
-    })
-
-    .state('tab.parametre',{
-      url:'/parametre',
-      view:{
-        'tab-parametre':{
-          templateUrl: 'templates/parametre.html',
-          controller: 'ParamCtrl'
-        }
-      }
-    })
-
-    .state('tab.information',{
-      url:'/information',
-      view:{
-        'tab-info':{
-          templateUrl: 'templates/information.html',
-          controller: 'InfoCtrl'
-        }
-      }
-    })
-
-
-  $urlRouterProvider.otherwise('/tab/map');
-
-})*/
-
   .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
@@ -114,7 +58,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
           }
         }
       })
-
       .state('tabs.servino', {
         url: "/servino",
         views: {
@@ -123,7 +66,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
           }
         }
       })
-
       .state('tabs.propos', {
         url: "/propos",
         views: {
