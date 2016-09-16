@@ -1,0 +1,30 @@
+<script id="templates/guild-war.html" type="text/ng-template">
+  <ion-view view-title="Guild wars">
+    <ion-content class="padding">
+
+      <ion-item collection-repeat="map in allMapsInfos">
+
+
+        <div class="item item-avatar">
+          <img src="http://loremflickr.com/320/240/">
+          <h2>{{map.data.name}}</h2>
+          <p>{{map.data.region_name}}</p>
+        </div>
+
+        <div class="item item-body">
+
+          <div class="row">
+            <div class="col">Niveau max : </div> <div class="col">{{map.data.min_level}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col">Niveau min : </div> <div class="col">{{map.data.max_level}}</div>
+          </div>
+
+        </div>
+
+      </ion-item>
+
+    </ion-content>
+  </ion-view>
+</script>
