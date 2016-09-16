@@ -50,24 +50,19 @@ angular.module('starter.controllers', [])
 .controller('parametersCtrl', function($scope,$cordovaBatteryStatus,$rootScope,$ionicPlatform) {
   $ionicPlatform.ready(function(){
     $rootScope.$on("$cordovaBatteryStatus:status", function(event, args){
-      console.log(args);
       $scope.batteryLevel = args.level;
-      console.log($scope.batteryLevel);
       $scope.isPluggedIn = args.isPlugged;
-      console.log($scope.isPluggedIn);
       if(args.isPlugged)
       {
-        alert("Noob de Clément tu charges -> " + args.level + " %");
+        alert("Portable branché, vous chargez -> " + args.level + " %");
       }
       else
       {
-        alert("WHAT POURQUOI TU ME DEBRANCHES -> " + args.level + " %");
+        alert("Vous venez de débrancher votre portable, vous êtes maintenant sur la batterie !  -> " + args.level + " %");
       }
       $scope.percentageStyle = {
-        width : $scope.batteryLevel + '%'
+        width : $scope.batteryLevel
       };
-      $scope.coucou = "coucou mdr";
     });
   });
-  $scope.coucoul = "XD";
 })

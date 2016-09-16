@@ -3,7 +3,8 @@
       <h3>Paramètres</h3>
       <hr>
       <!--p><img src="http://ionicframework.com/img/diagrams/tabs-nav-stack.png" style="width:100%"></p-->
-      niveau  de la batterie : {{batteryLevel}}
-      
+      niveau  de la batterie : {{batteryLevel}} %
+      <progress id="avancement" value={{batteryLevel}} max="100">{{batteryLevel}}%</progress>
+
     </ion-content>
   </ion-view>
