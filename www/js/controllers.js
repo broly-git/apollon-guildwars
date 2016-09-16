@@ -48,6 +48,7 @@ angular.module('starter.controllers', [])
 
 
 .controller('parametersCtrl', function($scope,$cordovaBatteryStatus,$rootScope,$ionicPlatform) {
+
   $ionicPlatform.ready(function(){
     $rootScope.$on("$cordovaBatteryStatus:status", function(event, args){
       $scope.batteryLevel = args.level;
@@ -65,6 +66,8 @@ angular.module('starter.controllers', [])
       };
     });
   });
+
+  
 
 });
 
