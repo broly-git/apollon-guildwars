@@ -47,28 +47,27 @@ angular.module('starter.controllers', [])
   })
 
 
-.controller('parametersCtrl', function($scope,$cordovaBatteryStatus,$rootScope) {
-
-    document.addEventListener("deviceready", function () {
-
-      $rootScope.$on('$cordovaBatteryStatus:status', function (result) {
-        var batteryLevel = result.level;       // (0 - 100)
-        var isPluggedIn  = result.isPlugged;   // bool
-      });
-
-      $rootScope.$on('$cordovaBatteryStatus:critical', function (result) {
-        var batteryLevel = result.level;       // (0 - 100)
-        var isPluggedIn  = result.isPlugged;   // bool
-      });
-
-      $rootScope.$on('$cordovaBatteryStatus:low', function (result) {
-        var batteryLevel = result.level;       // (0 - 100)
-        var isPluggedIn  = result.isPlugged;   // bool
-      });
-
-    }, false);
-
-    $scope.batteryLevel = $rootScope.batteryLevel;
-    console.log( $rootScope.batteryLevel);
-
+.controller('parametersCtrl', function($scope,$cordovaBatteryStatus,$rootScope,$ionicPlatform) {
+  $ionicPlatform.ready(function(){
+    $rootScope.$on("$cordovaBatteryStatus:status", function(event, args){
+      console.log(args);
+      $scope.batteryLevel = args.level;
+      console.log($scope.batteryLevel);
+      $scope.isPluggedIn = args.isPlugged;
+      console.log($scope.isPluggedIn);
+      if(args.isPlugged)
+      {
+        alert("Charging -> " + args.level + " %");
+      }
+      else
+      {
+        alert("Battery -> " + args.level + " %");
+      }
+      $scope.percentageStyle = {
+        width : $scope.batteryLevel + '%'
+      };
+      $scope.coucou = "coucou mdr";
+    });
+  });
+  $scope.coucoul = "XD";
 })
