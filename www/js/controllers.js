@@ -47,3 +47,28 @@ angular.module('starter.controllers', [])
   })
 
 
+.controller('parametersCtrl', function($scope,$cordovaBatteryStatus,$rootScope) {
+
+    document.addEventListener("deviceready", function () {
+
+      $rootScope.$on('$cordovaBatteryStatus:status', function (result) {
+        var batteryLevel = result.level;       // (0 - 100)
+        var isPluggedIn  = result.isPlugged;   // bool
+      });
+
+      $rootScope.$on('$cordovaBatteryStatus:critical', function (result) {
+        var batteryLevel = result.level;       // (0 - 100)
+        var isPluggedIn  = result.isPlugged;   // bool
+      });
+
+      $rootScope.$on('$cordovaBatteryStatus:low', function (result) {
+        var batteryLevel = result.level;       // (0 - 100)
+        var isPluggedIn  = result.isPlugged;   // bool
+      });
+
+    }, false);
+
+    $scope.batteryLevel = $rootScope.batteryLevel;
+    console.log( $rootScope.batteryLevel);
+
+})
