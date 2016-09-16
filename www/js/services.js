@@ -26,7 +26,7 @@ angular.module('starter.services', [])
             });
           }
 
-          for (i = 0; i < 60; i++) {
+          for (i = 0; i < 20; i++) {
             tabPromise[i]  = getMapInfos(mapIdList[i])
           }
 
